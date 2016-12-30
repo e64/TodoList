@@ -2,18 +2,19 @@ $("#titreNouvelleTache").keypress(function (event) {
     if (event.which == 13) {
         event.preventDefault();
         var $titreNouvelleTache = $("#titreNouvelleTache").val();
-        var $nouvelleTache = $('<li></li>');
-        var $checkBox = $('<input type="checkbox">');
+        var $nouvelleTache = $('<div class="item"></div>');
+        var $checkBox = $('<div class="ui checkbox"><input type="checkbox"></div>');
         $nouvelleTache.append($checkBox);
         $checkBox.click(function () {
             var estCheckBoxCoche = $(this).is(':checked') ? true : false;
             var color = estCheckBoxCoche ? "#999999" : "#000000";
-            $(this).parent().css("color", color);
+            $(this).parent().parent().css("color", color);
             var barre = estCheckBoxCoche ? "line-through" : "none";
-            $(this).parent().css("text-decoration", barre);
+            $(this).parent().parent().css("text-decoration", barre);
         });
         $nouvelleTache.append('<span>' + $titreNouvelleTache + '</span>');
-        $('ul').append($nouvelleTache);
+        $('div.ui.list').append($nouvelleTache);
+        $('.ui.checkbox').checkbox();
         $("#titreNouvelleTache").val('');
     }
 });
@@ -21,9 +22,9 @@ $("#titreNouvelleTache").keypress(function (event) {
 $('#filtrerAFaire').click(function () {
     $('#listeTaches :checkbox ').each(function () {
         if ($(this).is(':checked')) {
-            $(this).parent().hide();
+            $(this).parent().parent().hide();
         } else {
-            $(this).parent().show();
+            $(this).parent().parent().show();
         }
     });
 });
@@ -31,15 +32,15 @@ $('#filtrerAFaire').click(function () {
 $('#filtrerFaites').click(function () {
     $('#listeTaches :checkbox ').each(function () {
         if ($(this).is(':checked')) {
-            $(this).parent().show();
+            $(this).parent().parent().show();
         } else {
-            $(this).parent().hide();
+            $(this).parent().parent().hide();
         }
     });
 });
 
 $('#filtrerToutes').click(function () {
     $('#listeTaches :checkbox ').each(function () {
-        $(this).parent().show();
+        $(this).parent().parent().show();
     });
 });

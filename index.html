@@ -5,18 +5,35 @@
     <title>Ma TodoList</title>
     <script src="jquery_3_1.min.js"></script>
     <link rel="stylesheet" href="todoListe.css">
+    <link rel="stylesheet" href="Semantic-UI-CSS-master/semantic.min.css">
+    <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
 </head>
 <body>
-<h1>TODO LIST</h1>
-<div id="todoListe">
-    <div id="barreAjout"><input id="titreNouvelleTache" type="text" placeholder="Entrer une tâche">
-        <button id="filtrerFaites">Faites</button>
-        <button id="filtrerAFaire">A faire</button>
-        <button id="filtrerToutes">Toutes</button>
-    </div>
-    <div id="listeTaches">
-        <ul>
-        </ul>
+<div class="ui container">
+<br />
+    <h1 class="ui header">
+        <i class="tasks icon"></i>
+        <div class="content">
+            TODO LIST
+        </div></h1>
+    <div id="todoListe" class="ui stacked segment">
+        <div id="barreAjout">
+            <div class="ui left icon input">
+                <input id="titreNouvelleTache" type="text" placeholder="Entrer une tâche">
+                <i class="edit icon"></i>
+            </div>
+
+        </div>
+
+        <div id="listeTaches">
+            <div class="ui relaxed divided list">
+            </div>
+        </div>
+        <div class="ui basic buttons">
+            <div id="filtrerFaites" class="ui button">Faites</div>
+            <div id="filtrerAFaire" class="ui button">A faire</div>
+            <div id="filtrerToutes" class="ui button">Toutes</div>
+        </div>
     </div>
 </div>
 <script src="todoListe.js"></script>
